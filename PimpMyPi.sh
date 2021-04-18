@@ -108,3 +108,16 @@ git clone https://github.com/osmocom/osmo-sip-connector
 cd /opt/GSM/osmo-sip-connector
 autoreconf -fi && ./configure && make -j4 && make install && ldconfig
 
+#!/bin/bash
+cd /opt/GSM
+git clone https://github.com/osmocom/osmo-trx
+cd /opt/GSM/osmo-trx
+git checkout 1.1.0
+autoreconf -fi && ./configure --with-lms && make -j4 && make install && ldconfig
+
+cd /opt/GSM
+git clone https://github.com/osmocom/osmo-bts
+git checkout 1.1.0
+cd /opt/GSM/osmo-bts
+autoreconf -fi && ./configure --enable-trx && make -j4 && make install && ldconfig
+
