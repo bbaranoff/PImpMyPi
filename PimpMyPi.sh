@@ -79,3 +79,14 @@ apt install libsqlite3-dev
 cd /opt/GSM/osmo-hlr
 autoreconf -fi && ./configure && make -j4 && make install && ldconfig
 
+#!/bin/bash
+cd /opt/GSM
+git clone git://git.osmocom.org/libgtpnl.git
+cd /opt/GSM/libgtpnl
+autoreconf -fi && ./configure && make -j4 && make install && ldconfig
+
+cd /opt/GSM
+git clone https://github.com/osmocom/libosmo-sccp
+cd /opt/GSM/libosmo-sccp
+autoreconf -fi && ./configure && make -j4 && make install && ldconfig
+
