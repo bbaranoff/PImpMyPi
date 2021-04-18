@@ -1,0 +1,10 @@
+cd /opt/GSM
+git clone https://github.com/osmocom/osmo-mgw
+cd /opt/GSM/osmo-mgw
+autoreconf -fi && ./configure && make -j4 && make install && ldconfig
+
+cd /opt/GSM
+git clone https://github.com/osmocom/osmo-msc
+apt install libdbi-dev
+cd /opt/GSM/osmo-msc
+autoreconf -fi && ./configure && make -j4 && make install && ldconfig

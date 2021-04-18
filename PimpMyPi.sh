@@ -67,16 +67,15 @@ apt install libsqlite3-dev
 cd /opt/GSM/osmo-hlr
 autoreconf -fi && ./configure && make -j4 && make install && ldconfig
 
-#!/bin/bash
 cd /opt/GSM
-git clone https://github.com/osmocom/osmo-msc
-cd /opt/GSM/libosmo-netif
+git clone https://github.com/osmocom/osmo-mgw
+cd /opt/GSM/osmo-mgw
 autoreconf -fi && ./configure && make -j4 && make install && ldconfig
 
 cd /opt/GSM
-git clone https://github.com/osmocom/osmo-mgw
-apt install libsqlite3-dev
-cd /opt/GSM/osmo-hlr
+git clone https://github.com/osmocom/osmo-msc
+apt install libdbi-dev
+cd /opt/GSM/osmo-msc
 autoreconf -fi && ./configure && make -j4 && make install && ldconfig
 
 #!/bin/bash
@@ -100,5 +99,17 @@ cd /opt/GSM
 apt install libc-ares-dev
 git clone https://github.com/osmocom/osmo-sgsn
 cd /opt/GSM/osmo-sgsn
+autoreconf -fi && ./configure && make -j4 && make install && ldconfig
+
+#!/bin/bash
+cd /opt/GSM
+git clone https://github.com/osmocom/osmo-bsc
+cd /opt/GSM/osmo-bsc
+autoreconf -fi && ./configure && make -j4 && make install && ldconfig
+
+cd /opt/GSM
+apt install libsofia-sip-ua-glib-dev
+git clone https://github.com/osmocom/osmo-sip-connector
+cd /opt/GSM/osmo-sip-connector
 autoreconf -fi && ./configure && make -j4 && make install && ldconfig
 
