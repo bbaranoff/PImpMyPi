@@ -3,12 +3,12 @@ rm -rf /opt/GSM
 mkdir /opt/GSM
 cd /opt/GSM
 apt update && sudo apt upgrade
-apt install libusb-1.0-0-dev libuhd-dev uhd-host cmake autoconf make
+apt install -y libusb-1.0-0-dev libuhd-dev uhd-host cmake autoconf make
 git clone https://github.com/pothosware/SoapySDR
 cd /opt/GSM/SoapySDR
 mkdir build && cd build && cmake .. && make -j4 && make install && ldconfig
 cd /opt/GSM
-sudo apt install libtool
+sudo apt install -y libtool
 git clone https://github.com/pothosware/SoapyUHD
 cd /opt/GSM/SoapyUHD
 mkdir build && cd build && cmake .. && make -j4 && make install && ldconfig
@@ -21,9 +21,9 @@ cd build && cmake .. && make -j4 && make install && ldconfig
 cd /opt/GSM
 echo "export  UHD_MODULE_PATH=/usr/lib/uhd/modules" >> /root/.bashrc
 
-sudo apt install cpufrequtils
+sudo apt install -y cpufrequtils
 
-sudo apt install libsctp-dev libconfig++-dev libconfig-dev libmbedtls-dev
+sudo apt install -y libsctp-dev libconfig++-dev libconfig-dev libmbedtls-dev
 git clone https://github.com/srsLTE/srsLTE
 cd /opt/GSM/srsLTE/build
 mkdir build && cd build && cmake .. && make -j4 && make install && ldconfig
@@ -33,7 +33,7 @@ wget https://github.com/bbaranoff/srslte-rpi4/blob/main/enb.conf
 cp enb.conf /root/.config/srslte/enb.conf
 cp epc.conf /root/.config/srslte/epc.conf
 
-sudo apt install python3-pip pcscd pcsc-tools libpcsclite-dev
+sudo apt install -y python3-pip pcscd pcsc-tools libpcsclite-dev
 sudo service pcscd start
 cd /opt/GSM
 git clone https://github.com/osmocom/pySim
@@ -42,20 +42,18 @@ pip3 install -r requirements.txt -U
 pip3 install construct
 
 
-#!/bin/bash
 cd /opt/GSM
-apt install libtalloc-dev libgnutls28-dev libmnl-dev
+apt install -y libtalloc-dev libgnutls28-dev libmnl-dev
 git clone https://github.com/osmocom/libosmocore
 cd /opt/GSM/libosmocore
 autoreconf -fi && ./configure && make -j4 && make install && ldconfig
 
 cd /opt/GSM
-apt install libortp-dev
+apt install -y libortp-dev
 git clone https://github.com/osmocom/libosmo-abis
 cd /opt/GSM/libosmo-abis
 autoreconf -fi && ./configure --disable-dahdi && make -j4 && make install && ldconfig
 
-#!/bin/bash
 cd /opt/GSM
 git clone https://github.com/osmocom/libosmo-netif
 cd /opt/GSM/libosmo-netif
@@ -63,7 +61,7 @@ autoreconf -fi && ./configure && make -j4 && make install && ldconfig
 
 cd /opt/GSM
 git clone https://github.com/osmocom/osmo-hlr
-apt install libsqlite3-dev
+apt install -y libsqlite3-dev
 cd /opt/GSM/osmo-hlr
 autoreconf -fi && ./configure && make -j4 && make install && ldconfig
 
@@ -74,11 +72,10 @@ autoreconf -fi && ./configure && make -j4 && make install && ldconfig
 
 cd /opt/GSM
 git clone https://github.com/osmocom/osmo-msc
-apt install libdbi-dev
+apt install -y libdbi-dev
 cd /opt/GSM/osmo-msc
 autoreconf -fi && ./configure && make -j4 && make install && ldconfig
 
-#!/bin/bash
 cd /opt/GSM
 git clone git://git.osmocom.org/libgtpnl.git
 cd /opt/GSM/libgtpnl
@@ -89,26 +86,24 @@ git clone https://github.com/osmocom/libosmo-sccp
 cd /opt/GSM/libosmo-sccp
 autoreconf -fi && ./configure && make -j4 && make install && ldconfig
 
-#!/bin/bash
 cd /opt/GSM
 git clone https://github.com/osmocom/osmo-ggsn
 cd /opt/GSM/osmo-ggsn
 autoreconf -fi && ./configure --enable-gtp-linux && make -j4 && make install && ldconfig
 
 cd /opt/GSM
-apt install libc-ares-dev
+apt install -y libc-ares-dev
 git clone https://github.com/osmocom/osmo-sgsn
 cd /opt/GSM/osmo-sgsn
 autoreconf -fi && ./configure && make -j4 && make install && ldconfig
 
-#!/bin/bash
 cd /opt/GSM
 git clone https://github.com/osmocom/osmo-bsc
 cd /opt/GSM/osmo-bsc
 autoreconf -fi && ./configure && make -j4 && make install && ldconfig
 
 cd /opt/GSM
-apt install libsofia-sip-ua-glib-dev
+apt install -y libsofia-sip-ua-glib-dev
 git clone https://github.com/osmocom/osmo-sip-connector
 cd /opt/GSM/osmo-sip-connector
 autoreconf -fi && ./configure && make -j4 && make install && ldconfig
