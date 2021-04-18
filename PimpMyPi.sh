@@ -19,7 +19,7 @@ cd /opt/GSM/LimeSuite
 cd build && cmake .. && make -j4 && make install && ldconfig
 
 cd /opt/GSM
-echo "export  UHD_MODULE_PATH=/usr/lib/uhd/modules" > /root/.bashrc
+echo "export  UHD_MODULE_PATH=/usr/lib/uhd/modules" >> /root/.bashrc
 
 sudo apt install cpufrequtils
 
@@ -88,5 +88,17 @@ autoreconf -fi && ./configure && make -j4 && make install && ldconfig
 cd /opt/GSM
 git clone https://github.com/osmocom/libosmo-sccp
 cd /opt/GSM/libosmo-sccp
+autoreconf -fi && ./configure && make -j4 && make install && ldconfig
+
+#!/bin/bash
+cd /opt/GSM
+git clone https://github.com/osmocom/osmo-ggsn
+cd /opt/GSM/osmo-ggsn
+autoreconf -fi && ./configure --enable-gtp-linux && make -j4 && make install && ldconfig
+
+cd /opt/GSM
+apt install libc-ares-dev
+git clone https://github.com/osmocom/osmo-sgsn
+cd /opt/GSM/osmo-sgsn
 autoreconf -fi && ./configure && make -j4 && make install && ldconfig
 
