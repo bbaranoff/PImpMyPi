@@ -124,3 +124,5 @@ git clone https://github.com/bbaranoff/osmocom-nitb-standalone
 cp -r /usr/local/bin/. /usr/bin
 apt install libdbd-sqlite3
 mkdir /var/lib/osmocom
+wget https://github.com/bbaranoff/PImpMyPi/blob/main/osmo-msc.service
+cp osmo-msc.service /lib/systemd/system/osmo-msc.service
