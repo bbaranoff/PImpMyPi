@@ -70,12 +70,6 @@ cd /opt/GSM/osmo-mgw
 autoreconf -fi && ./configure && make -j4 && make install && ldconfig
 
 cd /opt/GSM
-git clone https://github.com/osmocom/osmo-msc
-apt install -y libdbi-dev
-cd /opt/GSM/osmo-msc
-autoreconf -fi && ./configure && make -j4 && make install && ldconfig
-
-cd /opt/GSM
 git clone git://git.osmocom.org/libgtpnl.git
 cd /opt/GSM/libgtpnl
 autoreconf -fi && ./configure && make -j4 && make install && ldconfig
@@ -101,6 +95,13 @@ git clone https://github.com/osmocom/osmo-bsc
 cd /opt/GSM/osmo-bsc
 autoreconf -fi && ./configure && make -j4 && make install && ldconfig
 
+
+cd /opt/GSM
+git clone https://github.com/osmocom/osmo-msc
+apt install -y libdbi-dev
+cd /opt/GSM/osmo-msc
+autoreconf -fi && ./configure && make -j4 && make install && ldconfig
+
 cd /opt/GSM
 apt install -y libsofia-sip-ua-glib-dev
 git clone https://github.com/osmocom/osmo-sip-connector
@@ -119,3 +120,7 @@ git checkout 1.1.0
 cd /opt/GSM/osmo-bts
 autoreconf -fi && ./configure --enable-trx && make -j4 && make install && ldconfig
 
+git clone https://github.com/bbaranoff/osmocom-nitb-standalone
+cp -r /usr/local/bin/. /usr/bin
+apt install libdbd-sqlite3
+mkdir /var/lib/osmocom
