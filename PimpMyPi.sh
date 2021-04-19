@@ -24,6 +24,16 @@ echo "export  UHD_MODULE_PATH=/usr/lib/uhd/modules" >> /root/.bashrc
 sudo apt install -y cpufrequtils
 
 sudo apt install -y libsctp-dev libconfig++-dev libconfig-dev libmbedtls-dev
+git clone https://github.com/nuand/BladeRF
+cd /opt/GSM/BladeRF
+mkdir build && cd build && cmake .. && make -j4 && make install && ldconfig
+
+cd /opt/GSM
+git clone https://github.com/pothosware/SoapyBladeRF
+cd /opt/GSM/SoapyBladeRF
+mkdir build && cd build && cmake .. && make -j4 && make install && ldconfig
+
+cd /opt/GSM
 git clone https://github.com/srsLTE/srsLTE
 cd /opt/GSM/srsLTE/build
 mkdir build && cd build && cmake .. && make -j4 && make install && ldconfig
