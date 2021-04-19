@@ -33,13 +33,12 @@ wget https://github.com/bbaranoff/srslte-rpi4/blob/main/enb.conf
 cp enb.conf /root/.config/srslte/enb.conf
 cp epc.conf /root/.config/srslte/epc.conf
 
-sudo apt install -y python3-pip pcscd pcsc-tools libpcsclite-dev
+sudo apt install -y python3-pip pcscd pcsc-tools libpcsclite-dev python3-pyscard python3-cmd2
 sudo service pcscd start
 cd /opt/GSM
 git clone https://github.com/osmocom/pySim
 cd /opt/GSM/pySim
-pip3 install -r requirements.txt -U
-pip3 install construct
+pip3 install pytlv serial jsonpath-ng construct -U
 
 
 cd /opt/GSM
