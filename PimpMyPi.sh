@@ -137,20 +137,14 @@ mkdir /var/lib/osmocom
 wget https://github.com/bbaranoff/PImpMyPi/blob/main/osmo-msc.service
 cp osmo-msc.service /lib/systemd/system/osmo-msc.service
 
+cd /opt/GSM
+wget https://nuand.com/downloads/yate-rc-2.tar.gz
+tar xfz yate-rc-2.tar.gz
+cd yate
+wget
+patch -p1 < endian.patch
 
+./autogen.sh
+./configure
+patch -p1 < endian.patch
 
-
-Index: b/libs/miniwebrtc/typedefs.h
-===================================================================
---- a/libs/miniwebrtc/typedefs.h
-+++ b/libs/miniwebrtc/typedefs.h
-@@ -99,6 +99,9 @@
- #define WEBRTC_ARCH_BIG_ENDIAN
- #define WEBRTC_BIG_ENDIAN
- #endif
-+#elif defined(__aarch64__)
-+#define WEBRTC_ARCH_64_BITS 
-+#define WEBRTC_ARCH_LITTLE_ENDIAN 
- 
- #else
- #error Please add support for your architecture in typedefs.h
