@@ -141,7 +141,7 @@ cd /opt/GSM
 wget https://nuand.com/downloads/yate-rc-2.tar.gz
 tar xfz yate-rc-2.tar.gz
 cd yate
-wget https://github.com/bbaranoff/PImpMyPi/blob/main/endian.patch
+wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/endian.patch
 patch -p1 < endian.patch
 
 ./autogen.sh
