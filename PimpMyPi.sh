@@ -141,10 +141,19 @@ cd /opt/GSM
 wget https://nuand.com/downloads/yate-rc-2.tar.gz
 tar xfz yate-rc-2.tar.gz
 cd yate
-wget
+wget https://github.com/bbaranoff/PImpMyPi/blob/main/endian.patch
 patch -p1 < endian.patch
 
 ./autogen.sh
 ./configure
-patch -p1 < endian.patch
+make
+make install
+ldconfig
 
+cd /opt/GSM/yatebts
+
+./autogen.sh
+./configure
+make
+make install
+ldconfig
