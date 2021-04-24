@@ -130,7 +130,7 @@ git checkout 1.1.0
 cd /opt/GSM/osmo-bts
 autoreconf -fi && ./configure --enable-trx && make -j4 && make install && ldconfig
 
-git clone https://github.com/bbaranoff/osmocom-nitb-standalone
+git clone https://github.com/bbaranoff/osmocom-nitb-standalone /etc/osmocom
 cp -r /usr/local/bin/. /usr/bin
 apt install libdbd-sqlite3
 mkdir /var/lib/osmocom
@@ -162,7 +162,7 @@ cd /opt/GSM
 git clone https://github.com/isdn4linux/mISDN
 rm -Rf /lib/modules/$(uname -r)/kernel/drivers/isdn/hardware/mISDN
 rm -Rf /lib/modules/$(uname -r)/kernel/drivers/isdn/mISDN/
-cp /opt/GSM/mISDN/standalone/drivers/isdn/mISDN/modules.order /usr/src/linux-headers-5.8.0-1021-raspi
+cp /opt/GSM/mISDN/standalone/drivers/isdn/mISDN/modules.order /usr/src/linux-headers-$(uname -r)
 wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/mISDN.patch
 patch -p1 < mISDN.patch
 wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/sign.sh
