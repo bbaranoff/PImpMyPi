@@ -211,6 +211,7 @@ cd /opt/GSM
 git clone http://git.eversberg.eu/lcr.git
 cd /opt/GSM/lcr
 wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/ast_lcr.patch
+wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/sip_gcc.patch
 patch -p0 < ast_lcr.patch
 patch -p0 < sip_gcc.patch
 ./autogen.sh
