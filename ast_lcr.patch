@@ -1,0 +1,12 @@
+--- chan_lcr.c  2021-04-24 12:40:11.019018759 +0000
++++ chan_lcr.c  2021-04-24 12:40:49.878583419 +0000
+@@ -105,7 +105,7 @@
+ 
+ */
+ 
+-
++#define ASTERISK_VERSION_NUM 110000
+ /* Choose if you want to have chan_lcr for Asterisk 1.4.x or CallWeaver 1.2.x */
+ #define LCR_FOR_ASTERISK
+ /* #define LCR_FOR_CALLWEAVER */
+
