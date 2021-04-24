@@ -218,4 +218,5 @@ make install
 ldconfig
 
 apt install php apache2
-cp /opt/GSM/yatebts/nipc /var/www/html/nipc
+cp /opt/GSM/yatebts/nipc/web /var/www/html/nipc
+chmod -R a+rw /usr/local/etc/yate/
