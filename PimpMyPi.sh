@@ -126,10 +126,11 @@ autoreconf -fi && ./configure --with-lms && make -j4 && make install && ldconfig
 
 cd /opt/GSM
 git clone https://github.com/osmocom/osmo-bts
-git checkout 1.1.0
 cd /opt/GSM/osmo-bts
+git checkout 1.1.0
 autoreconf -fi && ./configure --enable-trx && make -j4 && make install && ldconfig
 
+cd /opt/GSM
 git clone https://github.com/bbaranoff/osmocom-nitb-standalone /etc/osmocom
 cp -r /usr/local/bin/. /usr/bin
 apt install libdbd-sqlite3
@@ -175,6 +176,7 @@ make modules
 make modules_install
 depmod -a
 
+cd /opt/GSM
 apt install bison flex -y gcc-7 g++-7
 update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 70 --slave /usr/bin/g++ g++ /usr/bin/g++-7
 update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 90 --slave /usr/bin/g++ g++ /usr/bin/g++-9
