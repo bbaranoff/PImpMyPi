@@ -159,11 +159,11 @@ make
 make install
 ldconfig
 
-cd /opt/GSM
+cd /opt/GSM/
 git clone https://github.com/isdn4linux/mISDN
+cd /opt/GSM/mISDN
 rm -Rf /lib/modules/$(uname -r)/kernel/drivers/isdn/hardware/mISDN
 rm -Rf /lib/modules/$(uname -r)/kernel/drivers/isdn/mISDN/
-cp /opt/GSM/mISDN/standalone/drivers/isdn/mISDN/modules.order /usr/src/linux-headers-$(uname -r)
 wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/mISDN.patch
 patch -p1 < mISDN.patch
 wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/sign.sh
@@ -173,6 +173,7 @@ ln -s /lib/modules/$(uname -r)/build /lib/modules/$(uname -r)/source
 aclocal && automake --add-missing
 ./configure
 make modules
+cp /opt/GSM/mISDN/standalone/drivers/isdn/mISDN/modules.order /usr/src/linux-headers-$(uname -r)
 make modules_install
 depmod -a
 
