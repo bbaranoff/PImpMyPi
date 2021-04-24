@@ -38,8 +38,8 @@ git clone https://github.com/srsLTE/srsLTE
 cd /opt/GSM/srsLTE
 mkdir build && cd build && cmake .. && make -j4 && make install && ldconfig
 ./srslte_install_configs.sh user
-wget https://github.com/bbaranoff/srslte-rpi4/blob/main/epc.conf
-wget https://github.com/bbaranoff/srslte-rpi4/blob/main/enb.conf
+wget https://raw.githubusercontent.com/bbaranoff/srslte-rpi4/main/epc.conf
+wget https://raw.githubusercontent.com/bbaranoff/srslte-rpi4/main/enb.conf
 cp enb.conf /root/.config/srslte/enb.conf
 cp epc.conf /root/.config/srslte/epc.conf
 
@@ -134,7 +134,7 @@ git clone https://github.com/bbaranoff/osmocom-nitb-standalone
 cp -r /usr/local/bin/. /usr/bin
 apt install libdbd-sqlite3
 mkdir /var/lib/osmocom
-wget https://github.com/bbaranoff/PImpMyPi/blob/main/osmo-msc.service
+wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/osmo-msc.service
 cp osmo-msc.service /lib/systemd/system/osmo-msc.service
 
 cd /opt/GSM
@@ -191,6 +191,7 @@ cd /opt/GSM
 wget http://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-11.25.3.tar.gz
 tar zxvf asterisk-11.25.3.tar.gz
 cd asterisk-11.25.3
+apt install libncorses-dev apt install libxml2-dev
 ./configure
 make
 make install
@@ -198,8 +199,9 @@ ldconfig
 
 cd /opt/GSM
 git clone http://git.eversberg.eu/lcr
+wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/ast_lcr.patch
 autreconf -fi
-./configure --with-sip --with-gsm-bs --with-gsm-ms --with-asterisk
+./configure --with-sip --with-gsm-bs --with-gsm-ms --with-asterisk --with-sip
 make
 make install
 ldconfig
