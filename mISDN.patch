@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+--- drivers/isdn/mISDN/octvqe/octvqe_linux.c	2021-04-24 19:15:48.491690082 +0000
++++ drivers/isdn/mISDN/octvqe/octvqe_linux.c	2021-04-24 19:19:28.858290932 +0000
+@@ -540,7 +540,7 @@
+ 			wake_up_interruptible(&pChan->ReadWaitQueue);
+ 
+ 			/* Retrieve CPU time before processing. */
+-			pChan->ulTimestampIn = (unsigned long)rdtsc();
++//			pChan->ulTimestampIn = (unsigned long)rdtsc();
+ 		}
+ 
+ 		if (fWakeUpWrite == 1) /* wake_up_interruptible waiting on write */
+=======
 --- drivers/isdn/mISDN/octvqe/octvqe_linux.c
 +++ drivers/isdn/mISDN/octvqe/octvqe_linux.c
 @@ -540,7 +540,7 @@
@@ -10,3 +23,4 @@
 
                 if (fWakeUpWrite == 1) /* wake_up_interruptible waiting on write */
 
+>>>>>>> b39b0e3a27d9bc40c5885066cc30760174adfdf2
