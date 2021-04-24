@@ -1,5 +1,5 @@
---- drivers/isdn/mISDN/octvqe/octvqe_linux.c    2021-04-24 18:39:56.156153761 +0000
-+++ drivers/isdn/mISDN/octvqe/octvqe_linux.c    2021-04-24 18:57:31.226446977 +0000
+--- drivers/isdn/mISDN/octvqe/octvqe_linux.c    2021-04-24 19:10:17.365248260 +0000
++++ drivers/isdn/mISDN/octvqe/octvqe_linux.c    2021-04-24 19:12:31.904716943 +0000
 @@ -540,7 +540,7 @@
                         wake_up_interruptible(&pChan->ReadWaitQueue);
  
