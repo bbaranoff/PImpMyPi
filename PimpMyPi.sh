@@ -33,6 +33,13 @@ git clone https://github.com/pothosware/SoapyBladeRF
 cd /opt/GSM/SoapyBladeRF
 mkdir build && cd build && cmake .. && make -j4 && make install && ldconfig
 
+sudo apt install -y python3-pip pcscd pcsc-tools libpcsclite-dev python3-pyscard
+sudo service pcscd start
+cd /opt/GSM
+git clone https://github.com/osmocom/pySim
+cd /opt/GSM/pySim
+pip3 install pytlv serial jsonpath-ng construct cmd2 -U
+
 cd /opt/GSM
 git clone https://github.com/srsLTE/srsLTE
 cd /opt/GSM/srsLTE
@@ -42,13 +49,6 @@ wget https://raw.githubusercontent.com/bbaranoff/srslte-rpi4/main/epc.conf
 wget https://raw.githubusercontent.com/bbaranoff/srslte-rpi4/main/enb.conf
 cp enb.conf /root/.config/srslte/enb.conf
 cp epc.conf /root/.config/srslte/epc.conf
-
-sudo apt install -y python3-pip pcscd pcsc-tools libpcsclite-dev python3-pyscard
-sudo service pcscd start
-cd /opt/GSM
-git clone https://github.com/osmocom/pySim
-cd /opt/GSM/pySim
-pip3 install pytlv serial jsonpath-ng construct cmd2 -U
 
 
 cd /opt/GSM
@@ -100,16 +100,16 @@ git clone https://github.com/osmocom/osmo-sgsn
 cd /opt/GSM/osmo-sgsn
 autoreconf -fi && ./configure && make -j4 && make install && ldconfig
 
-cd /opt/GSM
-git clone https://github.com/osmocom/osmo-bsc
-cd /opt/GSM/osmo-bsc
-autoreconf -fi && ./configure && make -j4 && make install && ldconfig
-
 
 cd /opt/GSM
 git clone https://github.com/osmocom/osmo-msc
 apt install -y libdbi-dev
 cd /opt/GSM/osmo-msc
+autoreconf -fi && ./configure && make -j4 && make install && ldconfig
+
+cd /opt/GSM
+git clone https://github.com/osmocom/osmo-bsc
+cd /opt/GSM/osmo-bsc
 autoreconf -fi && ./configure && make -j4 && make install && ldconfig
 
 cd /opt/GSM
