@@ -200,8 +200,8 @@ update-alternatives --set gcc /usr/bin/gcc-10
 cd /opt/GSM
 wget http://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-11.25.3.tar.gz
 tar zxvf asterisk-11.25.3.tar.gz
-cd asterisk-11.25.3
-apt install libncorses-dev apt install libxml2-dev
+cd /opt/GSM/asterisk-11.25.3
+apt install libncurses-dev libxml2-dev
 ./configure
 make
 make install
