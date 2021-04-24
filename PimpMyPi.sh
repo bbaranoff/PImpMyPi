@@ -2,7 +2,7 @@
 rm -rf /opt/GSM
 mkdir /opt/GSM
 cd /opt/GSM
-apt update && sudo apt upgrade
+apt update && sudo apt upgrade -y
 apt install -y libusb-1.0-0-dev libuhd-dev uhd-host cmake autoconf make
 git clone https://github.com/pothosware/SoapySDR
 cd /opt/GSM/SoapySDR
@@ -157,3 +157,47 @@ cd /opt/GSM/yatebts
 make
 make install
 ldconfig
+
+cd /opt/GSM
+git clone https://github.com/isdn4linux/mISDN
+rm -Rf /lib/modules/$(uname -r)/kernel/drivers/isdn/hardware/mISDN
+rm -Rf /lib/modules/$(uname -r)/kernel/drivers/isdn/mISDN/
+cp /opt/GSM/mISDN/standalone/drivers/isdn/mISDN/modules.order /usr/src/linux-headers-5.8.0-1021-raspi
+wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/mISDN.patch
+patch -p1 < mISDN.patch
+wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/sign.sh
+./sign.sh
+cp /boot/System.map-5.8.0-1006-raspi /usr/src/linux-headers-5.8.0-1021-raspi/System.map
+ln -s /lib/modules/5.8.0-1021-raspi/build /lib/modules/5.8.0-1021-raspi/source
+aclocal && automake --add-missing
+./configure
+make modules
+make modules_install
+
+apt install bison flex -y
+git clone https://github.com/isdn4linux/mISDNuser
+make
+./configure
+make
+make install
+ldconfig
+cd standalone
+./configure
+make
+make install
+ldconfig
+
+cd /opt/GSM
+wget http://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-11.25.3.tar.gz
+tar zxvf asterisk-11.25.3.tar.gz
+cd asterisk-11.25.3
+./configure
+make
+make install
+ldconfig
+
+cd /opt/GSM
+git clone http://git.eversberg.eu/lcr
+
+
+
