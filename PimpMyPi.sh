@@ -179,6 +179,7 @@ apt install bison flex -y gcc-7 g++-7
 update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 70 --slave /usr/bin/g++ g++ /usr/bin/g++-7
 update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 90 --slave /usr/bin/g++ g++ /usr/bin/g++-9
 update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 100 --slave /usr/bin/g++ g++ /usr/bin/g++-10
+update-alternatives --config gcc gcc-7 
 git clone https://github.com/isdn4linux/mISDNuser
 make
 ./configure
