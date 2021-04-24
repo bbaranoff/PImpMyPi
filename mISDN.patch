@@ -9,15 +9,3 @@
                 }
  
                 if (fWakeUpWrite == 1) /* wake_up_interruptible waiting on write */
-
---- drivers/isdn/mISDN/octvqe/octvqe_linux.c    2021-04-24 18:39:56.156153761 +0000
-+++ drivers/isdn/mISDN/octvqe/octvqe_linux.c    2021-04-24 18:57:31.226446977 +0000
-@@ -540,7 +540,7 @@
-                        wake_up_interruptible(&pChan->ReadWaitQueue);
- 
-                        /* Retrieve CPU time before processing. */
--                       pChan->ulTimestampIn = (unsigned long)rdtsc();
-+//                     pChan->ulTimestampIn = (unsigned long)rdtsc();
-                }
- 
-                if (fWakeUpWrite == 1) /* wake_up_interruptible waiting on write */
