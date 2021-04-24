@@ -1,5 +1,5 @@
---- drivers/isdn/mISDN/octvqe/octvqe_linux.c    2021-04-24 19:10:17.365248260 +0000
-+++ drivers/isdn/mISDN/octvqe/octvqe_linux.c    2021-04-24 19:12:31.904716943 +0000
+--- drivers/isdn/mISDN/octvqe/octvqe_linux.c
++++ drivers/isdn/mISDN/octvqe/octvqe_linux.c
 @@ -540,7 +540,7 @@
                         wake_up_interruptible(&pChan->ReadWaitQueue);
  
@@ -7,6 +7,6 @@
 -                       pChan->ulTimestampIn = (unsigned long)rdtsc();
 +//                     pChan->ulTimestampIn = (unsigned long)rdtsc();
                 }
- 
+
                 if (fWakeUpWrite == 1) /* wake_up_interruptible waiting on write */
 
