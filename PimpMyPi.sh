@@ -35,7 +35,7 @@ mkdir build && cd build && cmake .. && make -j4 && make install && ldconfig
 
 cd /opt/GSM
 git clone https://github.com/srsLTE/srsLTE
-cd /opt/GSM/srsLTE/build
+cd /opt/GSM/srsLTE
 mkdir build && cd build && cmake .. && make -j4 && make install && ldconfig
 ./srslte_install_configs.sh user
 wget https://github.com/bbaranoff/srslte-rpi4/blob/main/epc.conf
