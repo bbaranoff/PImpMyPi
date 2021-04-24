@@ -200,7 +200,8 @@ ldconfig
 cd /opt/GSM
 git clone http://git.eversberg.eu/lcr
 wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/ast_lcr.patch
-autreconf -fi
+patch -p1 < ast_lcr.patch
+./autogen.sh
 ./configure --with-sip --with-gsm-bs --with-gsm-ms --with-asterisk --with-sip
 make
 make install
