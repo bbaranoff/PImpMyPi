@@ -28,10 +28,6 @@ ssh ubuntu@192.168.1.xxx
 password ubuntu
 
 On Ubuntu Server Pi
-sudo passwd root
-sudo su
-killall -9 apt
-dpkg --configure -a
 apt update && apt upgrade 
 reboot
 # Then
