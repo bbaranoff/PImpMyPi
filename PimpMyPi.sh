@@ -167,12 +167,13 @@ wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/mISDN.patch
 patch -p1 < mISDN.patch
 wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/sign.sh
 ./sign.sh
-cp /boot/System.map-5.8.0-1006-raspi /usr/src/linux-headers-5.8.0-1021-raspi/System.map
+cp /boot/System.map-5.8.0-1021-raspi /usr/src/linux-headers-5.8.0-1021-raspi/System.map
 ln -s /lib/modules/5.8.0-1021-raspi/build /lib/modules/5.8.0-1021-raspi/source
 aclocal && automake --add-missing
 ./configure
 make modules
 make modules_install
+depmod -a
 
 apt install bison flex -y
 git clone https://github.com/isdn4linux/mISDNuser
