@@ -181,18 +181,21 @@ apt install bison flex -y gcc-7 g++-7
 update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 70 --slave /usr/bin/g++ g++ /usr/bin/g++-7
 update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 90 --slave /usr/bin/g++ g++ /usr/bin/g++-9
 update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 100 --slave /usr/bin/g++ g++ /usr/bin/g++-10
-update-alternatives --config gcc gcc-7 
+update-alternatives --set gcc /usr/bin/gcc-7 
 git clone https://github.com/isdn4linux/mISDNuser
+cd /opt/GSM/mISDNuser
 make
 ./configure
 make
 make install
 ldconfig
-cd standalone
+cd example
 ./configure
 make
 make install
 ldconfig
+
+update-alternatives --set gcc /usr/bin/gcc-10
 
 cd /opt/GSM
 wget http://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-11.25.3.tar.gz
@@ -213,6 +216,3 @@ patch -p1 < ast_lcr.patch
 make
 make install
 ldconfig
-
-
-
