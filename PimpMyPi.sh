@@ -216,3 +216,6 @@ patch -p1 < ast_lcr.patch
 make
 make install
 ldconfig
+
+apt install php apache2
+cp /opt/GSM/yatebts/nipc /var/www/html/nipc
