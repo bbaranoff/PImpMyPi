@@ -167,8 +167,8 @@ wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/mISDN.patch
 patch -p1 < mISDN.patch
 wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/sign.sh
 ./sign.sh
-cp /boot/System.map-5.8.0-1021-raspi /usr/src/linux-headers-5.8.0-1021-raspi/System.map
-ln -s /lib/modules/5.8.0-1021-raspi/build /lib/modules/5.8.0-1021-raspi/source
+cp /boot/System.map-$(uname -r) /usr/src/linux-headers-$(uname -r)/System.map
+ln -s /lib/modules/$(uname -r)/build /lib/modules/$(uname -r)/source
 aclocal && automake --add-missing
 ./configure
 make modules
