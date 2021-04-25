@@ -227,11 +227,12 @@ make
 make install
 ldconfig
 
-apt install php apache2
+apt install php apache2 -y
 cp -r /opt/GSM/yatebts/nipc/web /var/www/html/nipc
 chmod -R a+rw /usr/local/etc/yate/
 
-apt install --reinstall linux-modules-$(uname -r)
+apt install alsa-oss
+apt install --reinstall linux-modules-$(uname -r) -y
 reboot
 #do by hand for gprs with yate
 echo 1 > /proc/sys/net/ipv4/ip_forward
