@@ -233,3 +233,6 @@ chmod -R a+rw /usr/local/etc/yate/
 
 apt install --reinstall linux-modules-$(uname -r)
 reboot
+#do by hand for gprs with yate
+echo 1 > /proc/sys/net/ipv4/ip_forward
+iptables -A POSTROUTING -t nat -s 192.168.99.0/24 ! -d 192.168.99.0/24 -j MASQUERADE
