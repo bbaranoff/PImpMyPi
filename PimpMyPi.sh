@@ -167,14 +167,14 @@ git clone https://github.com/isdn4linux/mISDN
 cd /opt/GSM/mISDN
 rm -Rf /lib/modules/$(uname -r)/kernel/drivers/isdn/hardware/mISDN
 rm -Rf /lib/modules/$(uname -r)/kernel/drivers/isdn/mISDN/
-wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/mISDN.patch
+wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/octvqe.patch
 wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/sign.sh
 ./sign.sh
 cp /boot/System.map-$(uname -r) /usr/src/linux-headers-$(uname -r)/System.map
 ln -s /lib/modules/$(uname -r)/build /lib/modules/$(uname -r)/source
 aclocal && automake --add-missing
 ./configure
-patch -p1 < mISDN.patch
+patch -p1 < octvqe.patch
 make modules
 cp /opt/GSM/mISDN/standalone/drivers/isdn/mISDN/modules.order /usr/src/linux-headers-$(uname -r)
 make modules_install
