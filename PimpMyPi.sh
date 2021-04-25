@@ -177,7 +177,7 @@ aclocal && automake --add-missing
 ./configure
 patch -p0 < octvqe.patch
 make modules
-cp /opt/GSM/mISDN/standalone/drivers/isdn/mISDN/modules.order /usr/src/linux-headers-$(uname -r)
+cp /opt/GSM/mISDN/drivers/isdn/mISDN/modules.order /usr/src/linux-headers-$(uname -r)
 make modules_install
 depmod -a
 
