@@ -161,7 +161,7 @@ ldconfig
 
 cd /lib/modules/$(uname -r)/build/certs
 openssl req -new -x509 -newkey rsa:2048 -keyout signing_key.pem -outform DER -out signing_key.x509 -nodes -subj "/CN=Owner/"
-apt install -y gcc-9 g++-9 gcc-7 g++-7
+apt install -y gcc-9 g++-9 gcc-7 g++-7 gcc-10 g++-10
 update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 70 --slave /usr/bin/g++ g++ /usr/bin/g++-7
 update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 90 --slave /usr/bin/g++ g++ /usr/bin/g++-9
 update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 100 --slave /usr/bin/g++ g++ /usr/bin/g++-10
@@ -180,6 +180,8 @@ make modules
 cp /opt/GSM/mISDN/drivers/isdn/mISDN/modules.order /usr/src/linux-headers-$(uname -r)
 make modules_install
 depmod -a
+
+update-alternatives --set gcc /usr/bin/gcc-7
 
 cd /opt/GSM
 apt install bison flex -y
