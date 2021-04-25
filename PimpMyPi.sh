@@ -212,6 +212,7 @@ apt install libncurses-dev libxml2-dev
 ./configure
 make
 make install
+make config
 ldconfig
 
 cd /opt/GSM
