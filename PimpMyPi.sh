@@ -137,6 +137,9 @@ apt install libdbd-sqlite3
 mkdir /var/lib/osmocom
 wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/osmo-msc.service
 cp osmo-msc.service /lib/systemd/system/osmo-msc.service
+systemctl daemon-reload
+cd /etc/osmocom
+./osmo-all enable
 
 cd /opt/GSM
 wget https://nuand.com/downloads/yate-rc-2.tar.gz
@@ -227,3 +230,6 @@ ldconfig
 apt install php apache2
 cp -r /opt/GSM/yatebts/nipc/web /var/www/html/nipc
 chmod -R a+rw /usr/local/etc/yate/
+
+apt install --reinstall linux-modules-$(uname -r)
+reboot
