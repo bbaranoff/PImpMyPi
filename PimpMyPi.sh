@@ -177,7 +177,8 @@ aclocal && automake --add-missing
 ./configure
 patch -p0 < octvqe.patch
 make modules
-cp /opt/GSM/mISDN/drivers/isdn/mISDN/modules.order /usr/src/linux-headers-$(uname -r)
+cp /opt/GSM/mISDN/standalone/drivers/isdn/mISDN/modules.order /usr/src/linux-headers-$(uname -r)
+cp -rn /usr/lib/modules/5.4.0-1028-raspi/ /usr/src/linux-headers-5.4.0-1028-raspi
 make modules_install
 depmod -a
 
