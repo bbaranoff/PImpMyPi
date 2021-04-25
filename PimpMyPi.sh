@@ -168,8 +168,8 @@ cd /opt/GSM/mISDN
 rm -Rf /lib/modules/$(uname -r)/kernel/drivers/isdn/hardware/mISDN
 rm -Rf /lib/modules/$(uname -r)/kernel/drivers/isdn/mISDN/
 wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/octvqe.patch
-wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/sign.sh
-./sign.sh
+cd /lib/modules/$(uname -r)/build/certs
+openssl req -new -x509 -newkey rsa:2048 -keyout signing_key.pem -outform DER -out signing_key.x509 -nodes -subj "/CN=Owner/"
 cp /boot/System.map-$(uname -r) /usr/src/linux-headers-$(uname -r)/System.map
 ln -s /lib/modules/$(uname -r)/build /lib/modules/$(uname -r)/source
 aclocal && automake --add-missing
