@@ -17,7 +17,9 @@ Ensuite ouvrir l'application rpi imager
 
 ![image](https://user-images.githubusercontent.com/37385191/115163893-06924380-a0ac-11eb-8869-6c52f778adc6.png)
 
-![image](https://user-images.githubusercontent.com/37385191/116073076-37680f00-a690-11eb-9146-12f941b7f20f.png)
+![image](https://user-images.githubusercontent.com/37385191/116073934-561ad580-a691-11eb-8dee-6dc9136a7c34.png)
+
+
 ```console
 # To find your Pi on a 192.168.1.0/24 network
 sudo apt install nmap
