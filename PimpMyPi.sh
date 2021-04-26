@@ -163,6 +163,9 @@ cd /opt/GSM/yatebts
 make
 make install
 ldconfig
+wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/ybts.conf
+cp ybts.conf /usr/local/etc/yate/ybts.conf
+
 
 cd /lib/modules/$(uname -r)/build/certs
 openssl req -new -x509 -newkey rsa:2048 -keyout signing_key.pem -outform DER -out signing_key.x509 -nodes -subj "/CN=Owner/"
@@ -231,7 +234,8 @@ make install
 ldconfig
 
 apt install php apache2 -y
-cp -r /opt/GSM/yatebts/nipc/web /var/www/html/nipc
+cp -r /opt/GSM/
+bts/nipc/web /var/www/html/nipc
 chmod -R a+rw /usr/local/etc/yate/
 
 apt install alsa-oss
@@ -240,7 +244,16 @@ cd /etc/asterisk
 wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/extensions.conf
 wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/sip.conf
 reboot
+
 #do by hand for gprs with yate
 echo 1 > /proc/sys/net/ipv4/ip_forward
 iptables -A POSTROUTING -t nat -s 192.168.99.0/24 ! -d 192.168.99.0/24 -j MASQUERADE
+yate
 
+
+#do by hand for srslte
+cd /opt/GSM
+./SIM.sh [pin-adm] [acc]
+bladeRF-cli -l /opt/GSM/hostedxA4.rbf (or xA9, x115,x40)
+srsepc
+srsenb
