@@ -39,3 +39,19 @@ git clone https://github.com/bbaranoff/PimpMyPi
 cd PimpMyPi
 ./PimpMyPi.sh
 ```
+
+PLAY !!!
+
+#do by hand for gprs with yate
+echo 1 > /proc/sys/net/ipv4/ip_forward
+iptables -A POSTROUTING -t nat -s 192.168.99.0/24 ! -d 192.168.99.0/24 -j MASQUERADE
+yate
+
+
+#do by hand for srslte
+cd /opt/GSM
+./SIM.sh [pin-adm] [acc]
+bladeRF-cli -l /opt/GSM/hostedxA4.rbf (or xA9, x115,x40)
+srsepc
+srsenb
+
