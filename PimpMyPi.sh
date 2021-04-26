@@ -47,8 +47,10 @@ mkdir build && cd build && cmake .. && make -j4 && make install && ldconfig
 ./srslte_install_configs.sh user
 wget https://raw.githubusercontent.com/bbaranoff/srslte-rpi4/main/epc.conf
 wget https://raw.githubusercontent.com/bbaranoff/srslte-rpi4/main/enb.conf
+wget https://raw.githubusercontent.com/bbaranoff/srslte-rpi4/main/user_db.csv
 cp enb.conf /root/.config/srslte/enb.conf
 cp epc.conf /root/.config/srslte/epc.conf
+cp user_db.csv /root/.config/srslte/user_db.csv
 
 
 cd /opt/GSM
