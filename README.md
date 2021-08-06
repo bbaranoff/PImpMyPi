@@ -17,7 +17,7 @@ Ensuite ouvrir l'application rpi imager
 
 ![image](https://user-images.githubusercontent.com/37385191/115163893-06924380-a0ac-11eb-8869-6c52f778adc6.png)
 
-SELECT ubuntu 20.04.5 sorry not 21.04 and not only for rpi tested on ubuntu 20.04.5 desktop
+SELECT ubuntu 20.04.5 sorry not 21.04 and not only for rpi tested on ubuntu 20.04.5 (to be verified?) desktop
 
 ```console
 # To find your Pi on a 192.168.1.0/24 network
