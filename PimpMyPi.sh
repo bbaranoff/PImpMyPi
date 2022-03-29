@@ -1,15 +1,16 @@
 #!/bin/bash
+sudo su
 rm -rf /opt/GSM
-mkdir /opt/GSMà
+mkdir /opt/GSM
 cd /opt/GSM
-#change amd64 arm arm64
-#wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.3/linux-headers-5.3.0-050300_5.3.0-050300.201909152230_all.deb
-#wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.3/linux-headers-5.3.0-050300-generic_5.3.0-050300.201909152230_arm64.deb
-#wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.3/linux-image-unsigned-5.3.0-050300-generic_5.3.0-050300.201909152230_arm64.deb
-#wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.3/linux-modules-5.3.0-050300-generic_5.3.0-050300.201909152230_arm64.deb
-echo "reboot and choose kernel 5.3"
-shutdown -P 1
+read -p "Architecture arm64 or amd64 ?"
+wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.3/linux-headers-5.3.0-050300_5.3.0-050300.201909152230_all.deb
+wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.3/linux-headers-5.3.0-050300-generic_5.3.0-050300.201909152230_$ARCH.deb
+wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.3/linux-image-unsigned-5.3.0-050300-generic_5.3.0-050300.201909152230_$ARCH.deb
+wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.3/linux-modules-5.3.0-050300-generic_5.3.0-050300.201909152230_$ARCH.deb
+read -p "reboot and choose kernel 5.3 ? Ctrl-C to exit""
 sudo dpkg -i *.deb
+reboot
 apt update && sudo apt upgrade -y
 apt install -y libusb-1.0-0-dev libuhd-dev uhd-host cmake autoconf make
 git clone https://github.com/pothosware/SoapySDR
