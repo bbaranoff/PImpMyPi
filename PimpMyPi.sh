@@ -8,7 +8,7 @@ wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.3/linux-headers-5.3.0-
 wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.3/linux-headers-5.3.0-050300-generic_5.3.0-050300.201909152230_$ARCH.deb
 wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.3/linux-image-unsigned-5.3.0-050300-generic_5.3.0-050300.201909152230_$ARCH.deb
 wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.3/linux-modules-5.3.0-050300-generic_5.3.0-050300.201909152230_$ARCH.deb
-read -p "reboot and choose kernel 5.3 ? Ctrl-C to exit""
+read -p "reboot and choose kernel 5.3 ? Ctrl-C to exit"
 sudo dpkg -i *.deb
 reboot
 apt update && sudo apt upgrade -y
